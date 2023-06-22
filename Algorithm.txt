@@ -1,0 +1,26 @@
+ Here's an explanation of the main algorithm steps:
+
+1. The `returnIndex` function is a helper function that performs a binary search on a sorted array to find the index where a given number should be inserted while maintaining the sorted order. It returns the index or `None` if the array is empty.
+
+2. The `binarySearch` function is a recursive helper function used by `returnIndex` to perform the actual binary search. It compares the middle element of the array with the target number and recursively narrows down the search range until the target number is found or the search range is reduced to a single element.
+
+3. The `addJob` function takes several parameters: `length` (current length of the array), `array` (the array of job deadlines), `deadline` (the deadline of the new job), `minutes` (the time required to complete the new job), and `late` (the number of jobs that couldn't be completed within their deadlines). It performs the following steps:
+   - If the current length is less than the new job's deadline, it appends additional elements to the array to meet the new deadline.
+   - It calculates the index where the new job's deadline should be inserted using the `returnIndex` function.
+   - If an index is found, it removes jobs from the array starting from that index while there are minutes left and the index is valid.
+   - It then removes jobs from the beginning of the array while there are minutes left and the job's deadline is less than the new job's deadline.
+   - It updates the `late` count with the remaining minutes.
+   - Finally, it returns the updated `late` count and the new length of the array.
+
+4. In the main part of the code, it takes the input value `n` which represents the number of job operations to perform.
+
+5. It initializes variables for `time` and `length`.
+
+6. It iterates `n` times to process each job operation.
+   - Each job operation is split into a list of two elements: the job's deadline and the time required to complete the job.
+   - The `addJob` function is called with the current length, the array of deadlines, the job's deadline, the job's time, and the current `late` count.
+   - The `late` count and the updated length of the array are printed.
+
+The algorithm maintains an array of job deadlines and adjusts the array based on the new job operations, ensuring that jobs are completed within their deadlines. The `late` count keeps track of the number of jobs that couldn't be completed within their deadlines.
+
+Note: The code expects input from the user through `input()` function calls. The provided explanation assumes the inputs are provided correctly.
